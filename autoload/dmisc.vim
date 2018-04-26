@@ -23,27 +23,12 @@ function! dmisc#get_package_imports()
 
 python3 << EOF
 import_paths = get_dub_import_paths(vim.eval('g:dmisc_dub_path'))
-print(import_paths)
 vim.command("let g:dmisc_import_paths=" + str(import_paths))
 EOF
-
-echo g:dmisc_import_paths
 
 return g:dmisc_import_paths
 endfunction
 
-" return <SID>get_package_imports()
-" endfunction
-
-" function! s:get_package_imports()
-
-" python3 << EOF
-" import_paths = get_dub_import_paths(vim.eval('g:dmisc_dub_path'))
-" vim.command("let g:dmisc_import_paths=" + import_paths)
-" EOF
-
-" return g:dmisc_import_paths
-" endfunction
 
 
 
