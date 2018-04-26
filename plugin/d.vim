@@ -1,6 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "  d-lang / d-utyls
 """"""""""""""""""""""""""""""""""""""""""""
+
+" == path settings ==
+let $PATH=+'~/.dutils/D-Scanner/bin;~/.dutils/dfmt/bin'
+
+
 let g:dutyl_stdImportPaths=dmisc#get_package_imports()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -49,8 +54,6 @@ augroup DCommands
 augroup END
 
 
-" == path settings ==
-" let $PATH=+'~/.dutils/D-Scanner/bin;~/.dutils/dfmt/bin'
 
 " == further settings ==
 " let g:dutyl_neverAddClosingParen=1

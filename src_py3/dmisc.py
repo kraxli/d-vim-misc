@@ -9,6 +9,7 @@ def get_dub_import_paths(dub_path, std_imports = None):
     get dub import paths of latest dub packages
 
     :dub_path: str; path to dub-directory
+    :std_imports: list of str; std import paths (defaults see below)
     :return: list; import paths
     """
 
@@ -24,6 +25,9 @@ def get_dub_import_paths(dub_path, std_imports = None):
 
     # TODO: construct generator
     for package in dub_directories:
+        if (package is None) or (type(package) is not str):
+            continue
+
         split_position = re.search("-\d", package).start()
         package_name = package[:split_position]
         package_version = package[split_position+1:]
@@ -34,6 +38,7 @@ def get_dub_import_paths(dub_path, std_imports = None):
             package_registry[package_name].sort(reverse=True)
 
     packages_latest = (pack + "-" + rel[0]  for pack, rel in package_registry.items())
+
     source = lambda pack: os.path.join(dub_path, pack, 'source')
     parent =  lambda pack: os.path.join(dub_path, pack)
     import_paths = list(chain.from_iterable((parent(p), source(p)) for p in packages_latest))
