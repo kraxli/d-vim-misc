@@ -41,7 +41,6 @@ def get_dub_import_paths(dub_path, std_imports = None):
     return std_imports + import_paths
 
 
-if __name__ == __main__:
-    dub_path =  r'/home/dave/.dub/packages/'
-    get_dub_import_paths(dub_path)
+# dub_path =  r'/home/dave/.dub/packages/'
+# get_dub_import_paths(dub_path)
 
