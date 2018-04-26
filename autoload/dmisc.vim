@@ -5,20 +5,20 @@
 "=============================================================================
 
 let s:plugin_path = fnamemodify(expand('<sfile>'), ':p:h:h')
-let s:python_scr = '/src_py3'
+let s:python_src = s:plugin_path.'/src_py3'
 
+echo s:python_src
 
 python3 << EOF
 import sys
 import vim
 
 # Add sys.path
-sys.path.insert(0, vim.eval('s:plugin_path'.s:python_scr))
+sys.path.insert(0, vim.eval('s:python_src'))
 from dmisc import *
-
 EOF
 
-function! dmisc#get_package_imports()
+function! s:get_package_imports()
 
 python3 << EOF
 import_paths = get_dub_import_paths(vim.eval('g:dmisc_dub_path'))
@@ -29,6 +29,10 @@ return g:dmisc_import_paths
 endfunction
 
 
+
+function! dmisc#get_package_imports()
+	return <SID>get_package_imports()
+endfunction
 
 
 
