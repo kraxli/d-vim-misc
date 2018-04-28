@@ -1,2 +1,2 @@
-# d_misc
-miscellaneous support for the D (dlang)
+# d-vim-misc
+miscellaneous vim support for the D (dlang)
